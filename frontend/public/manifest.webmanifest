@@ -1,0 +1,19 @@
+{
+  "name": "Blizz Beautified Hair Empire",
+  "short_name": "Blizz Beauty",
+  "description": "Luxury braided wigs, beauty essentials, and salon styling support.",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FDF3F2",
+  "theme_color": "#7A0C1A",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

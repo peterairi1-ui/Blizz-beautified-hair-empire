@@ -1,0 +1,34 @@
+{
+  "name": "blizz-beautified-hair-empire-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Blizz Beautified Hair Empire",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed:admin": "node scripts/seedAdmin.js",
+    "seed:products": "node scripts/seedProducts.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.0.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^8.0.1",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^8.1.0",
+    "morgan": "^1.10.4",
+    "multer": "^1.4.0",
+    "nodemailer": "^6.0.0",
+    "uuid": "^11.0.1",
+    "validator": "^13.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
