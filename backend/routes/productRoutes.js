@@ -181,13 +181,13 @@ router.post('/', requireAdmin, upload.array('images', 8), async (req, res) => {
   try {
     if (mongoose.connection.readyState !== 1) {
       const payload = { ...req.body };
-      if (req.files && req.files.length) payload.images = req.files.map((file) => `/uploads/${file.filename}`);
+      if (req.files && req.files.length)  ayload.images = req.files.map((file) => `/uploads/${file.filename}`);
       const product = createFallbackProduct(payload);
       return sendSuccess(res, 201, product, 'Product created');
     }
 
     const payload = { ...req.body };
-    if (req.files && req.files.length) payload.images = req.files.map((file) => `/uploads/${file.filename}`);
+    if (req.files && req.files.length) payload.images = req.files.map((file) => file.path);
     if (typeof payload.tags === 'string') {
       payload.tags = payload.tags.split(',').map((tag) => tag.trim()).filter(Boolean);
     }
@@ -206,14 +206,14 @@ router.put('/:id', requireAdmin, upload.array('images', 8), async (req, res) => 
   try {
     if (mongoose.connection.readyState !== 1) {
       const payload = { ...req.body };
-      if (req.files && req.files.length) payload.images = req.files.map((file) => `/uploads/${file.filename}`);
+      if (req.files && req.files.length) payload.images = req.files.map((file) => file.path);
       const product = updateFallbackProduct(req.params.id, payload);
       if (!product) return sendError(res, 404, 'Product not found');
       return sendSuccess(res, 200, product, 'Product updated');
     }
 
     const payload = { ...req.body };
-    if (req.files && req.files.length) payload.images = req.files.map((file) => `/uploads/${file.filename}`);
+    if (req.files && req.files.length) payload.images = req.files.map((file) => file.path);
     if (typeof payload.tags === 'string') {
       payload.tags = payload.tags.split(',').map((tag) => tag.trim()).filter(Boolean);
     }
@@ -230,14 +230,14 @@ router.patch('/:id', requireAdmin, upload.array('images', 8), async (req, res) =
   try {
     if (mongoose.connection.readyState !== 1) {
       const payload = { ...req.body };
-      if (req.files && req.files.length) payload.images = req.files.map((file) => `/uploads/${file.filename}`);
+      if (req.files && req.files.length) payload.images = req.files.map((file) => file.path);
       const product = updateFallbackProduct(req.params.id, payload);
       if (!product) return sendError(res, 404, 'Product not found');
       return sendSuccess(res, 200, product, 'Product updated');
     }
 
     const payload = { ...req.body };
-    if (req.files && req.files.length) payload.images = req.files.map((file) => `/uploads/${file.filename}`);
+    if (req.files && req.files.length) payload.images = req.files.map((file) => file.path);
     if (typeof payload.tags === 'string') {
       payload.tags = payload.tags.split(',').map((tag) => tag.trim()).filter(Boolean);
     }
