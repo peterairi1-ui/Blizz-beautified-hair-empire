@@ -36,7 +36,7 @@ app.use(helmet({
     },
   },
 }));
-app.use(cors({ origin: process.env.CORS_ORIGIN || CLIENT_URL, credentials: true }));s
+app.use(cors({ origin: process.env.CORS_ORIGIN || CLIENT_URL, credentials: true }));
 app.use(compression());
 app.use(cookieParser());
 app.use(express.json({ limit: '10mb' }));
