@@ -87,6 +87,16 @@ app.use(errorHandler);
 async function bootstrap() {
   await connectDatabase();
 
+  if (process.env.RUN_SEED_ON_BOOT === 'true') {
+    try {
+      const { run: runSeed } = require('./seed');
+      const result = await runSeed();
+      console.log(`Seed run complete: created ${result.created}, skipped ${result.skipped}`);
+    } catch (err) {
+      console.error('Seed run failed:', err.message);
+    }
+  }
+
   try {
     const defaultEmail = process.env.DEFAULT_ADMIN_EMAIL || 'admin@blizzbeautified.com';
     let defaultPassword = process.env.DEFAULT_ADMIN_PASSWORD || null;
